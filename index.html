@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="keywords" content="sortable, reorder, list, javascript, html5, drag and drop, dnd, animation, groups, angular, ng-sortable, react, mixin, effects, rubaxa" />
+		<meta name="viewport" content="width=device-width, initial-scale=0.5" />
+		<style>
+      body {
+        font-family: arial;
+        background: rgb(242, 244, 246);
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      h3 {
+        color: rgb(199, 204, 209);
+        font-size: 28px;
+        text-align: center;
+      }
+
+      #elements-container {
+        text-align: center;
+      }
+
+      .draggable-element {
+        display: inline-block;
+        width: 200px;
+        height: 200px;
+        background: white;
+        border: 1px solid rgb(196, 196, 196);
+        line-height: 200px;
+        text-align: center;
+        margin: 10px;
+        color: rgb(51, 51, 51);
+        font-size: 30px;
+        cursor: move;
+      }
+
+      .drag-list {
+        width: 400px;
+        margin: 0 auto;
+      }
+
+      .drag-list > li {
+        list-style: none;
+        background: rgb(255, 255, 255);
+        border: 1px solid rgb(196, 196, 196);
+        margin: 5px 0;
+        font-size: 24px;
+      }
+
+      .drag-list .title {
+        display: inline-block;
+        width: 75px;
+        padding: 6px 6px 6px 12px;
+        vertical-align: top;
+        font-size: 0.5rem;
+        }
+
+      .drag-list .drag-area {
+        display: inline-block;
+        background: rgb(158, 211, 179);
+        width: 60px;
+        height: 28px;
+        vertical-align: top;
+        float: right;
+        cursor: move;
+      }
+      .sb1{
+      	 display: inline-block;
+      	  padding: 6px 6px 6px 12px;
+      }
+       .sb2{
+      	 display: inline-block;
+      	  padding: 6px 6px 6px 60px;
+      	    text-align: center;
+      }
+       .sb3{
+      	 display: inline-block;
+      	  padding: 6px 6px 6px 45px;
+      	    text-align: center;
+      }
+	.move{
+		font-size: 17px;
+	}
+	.title2{
+		display: inline-block;
+        width: 100px;
+        padding: 6px 6px 6px 15px;
+        vertical-align: top;
+        font-size: 0.5rem;
+        text-align: center;
+	}
+	.title3{
+		display: inline-block;
+        width: 60px;
+        padding: 6px 6px 6px 19px;
+        vertical-align: top;
+        font-size: 0.5rem;
+	}
+
+    </style>
+	</head>
+
+	<body>
+		<div class="container" style="height: 520px;overflow: auto;">
+				<ul id="foo" class="drag-list">
+					<li style="cursor: not-allowed; "><span class="sb1">姓名</span ><span class="sb2">单位</span><span class="sb2">职务</span><span class="sb3">操作</span></li>
+					<li><span class="title">龙傲天啊</span><span class="title2"> 市计划生育办</span><span class="title3">生育办主任</span><span class="drag-area"></li>
+       				<li ><span class="title">龙傲天</span><span class="title2">发改委</span><span class="title3">主任</span><span class="drag-area"></span></li>
+					<li><span class="title">龙傲</span><span class="title2">省政府</span><span class="title3">办主任</span><span class="drag-area"></span></li>
+					<li><span class="title">龙傲天</span><span class="title2">教育部</span><span class="title3">部长</span><span class="drag-area"></span></li>
+					<li><span class="title">龙傲天啊</span><span class="title2"> 市计划生育办</span><span class="title3">生育办主任</span><span class="drag-area"></li>
+       				<li ><span class="title">龙傲天</span><span class="title2">发改委</span><span class="title3">主任</span><span class="drag-area"></span></li>
+					<li><span class="title">龙傲天啊</span><span class="title2"> 市计划生育办</span><span class="title3">生育办主任</span><span class="drag-area"></li>
+       				<li ><span class="title">龙傲天</span><span class="title2">发改委</span><span class="title3">主任</span><span class="drag-area"></span></li>
+					<li><span class="title">龙傲天啊</span><span class="title2"> 市计划生育办</span><span class="title3">生育办主任</span><span class="drag-area"></li>
+       				<li ><span class="title">龙傲天</span><span class="title2">发改委</span><span class="title3">主任</span><span class="drag-area"></span></li>
+					<li><span class="title">龙傲天啊</span><span class="title2"> 市计划生育办</span><span class="title3">生育办主任</span><span class="drag-area"></li>
+       				<li ><span class="title">龙傲天</span><span class="title2">发改委</span><span class="title3">主任</span><span class="drag-area"></span></li>
+					<li><span class="title">龙傲天啊</span><span class="title2"> 市计划生育办</span><span class="title3">生育办主任</span><span class="drag-area"></li>
+       				<li ><span class="title">龙傲天</span><span class="title2">发改委</span><span class="title3">主任</span><span class="drag-area"></span></li>
+					<li><span class="title">龙傲天啊</span><span class="title2"> 市计划生育办</span><span class="title3">生育办主任</span><span class="drag-area"></li>
+       				<li ><span class="title">龙傲天</span><span class="title2">发改委</span><span class="title3">主任</span><span class="drag-area"></span></li>
+					<li><span class="title">龙傲天啊</span><span class="title2"> 市计划生育办</span><span class="title3">生育办主任</span><span class="drag-area"></li>
+       				<li ><span class="title">龙傲天</span><span class="title2">发改委</span><span class="title3">主任</span><span class="drag-area"></span></li>
+					<li><span class="title">龙傲天啊</span><span class="title2"> 市计划生育办</span><span class="title3">生育办主任</span><span class="drag-area"></li>
+       				<li ><span class="title">龙傲天</span><span class="title2">发改委</span><span class="title3">主任</span><span class="drag-area"></span></li>
+					<li><span class="title">龙傲天啊</span><span class="title2"> 市计划生育办</span><span class="title3">生育办主任</span><span class="drag-area"></li>
+       				<li ><span class="title">龙傲天</span><span class="title2">发改委</span><span class="title3">主任</span><span class="drag-area"></span></li>
+					<li><span class="title">龙傲天啊</span><span class="title2"> 市计划生育办</span><span class="title3">生育办主任</span><span class="drag-area"></li>
+				</ul>
+			</div>
+			<script src="js/Sortable.js"></script>
+			<script src="js/app.js"></script>
+
+	</body>
+
+</html>
